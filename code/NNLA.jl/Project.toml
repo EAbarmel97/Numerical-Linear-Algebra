@@ -1,0 +1,16 @@
+name = "NNLA"
+uuid = "46f4dd79-1f4e-4c13-ba2a-40d84e388a92"
+authors = ["Enki A. Barra M. <enki.barmel97@ciencias.unam.mx>"]
+version = "0.1.0"
+
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
+Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+Documenter = "1.8.1"
+DocumenterTools = "0.1.20"
+Revise = "3.7.2"
+Test = "1.11.0"

@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb}
+
+\begin{document}
+
+\section*{1.1}
+Let $V$ be a pre-Hilbert space. Use $0 \leq \langle \alpha x + \beta y, \alpha x + \beta y \rangle$ for $\alpha, \beta \in \mathbb{R}$ and $x, y \in V$ to prove the Cauchy–Schwarz inequality.
+\\
+\\
+\noindent \textbf{SOLUTION: }
+
+\section*{1.2}
+Let $V$ be a normed space with norm $\| \cdot \| : V \to \mathbb{R}$. Show that $V$ is a pre-Hilbert space and that the norm comes from an inner product $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$ if and only if the parallelogram equality
+\[
+\|x + y\|^2 + \|x - y\|^2 = 2\|x\|^2 + 2\|y\|^2, \quad x, y \in V
+\]
+holds, and that in this case the inner product satisfies
+\[
+\langle x, y \rangle = \frac{1}{4} \left( \|x + y\|^2 - \|x - y\|^2 \right), \quad x, y \in V.
+\]
+
+\section*{1.3}
+Let $V$ be a pre-Hilbert space. Show that the norm induced by the inner product satisfies $\|x + y\| < 2$ for all $x \neq y \in V$ with $\|x\| = \|y\| = 1$.
+\\
+\\
+\noindent \textbf{SOLUTION: }
+We know that $\langle \star, \star \rangle^{\frac{1}{2}} =  \| \star \|$. By ex. $1.2$ this implies the internal product can be expressed in 
+\section*{1.4}
+Let $A \in \mathbb{R}^{n \times n}$ be symmetric and positive definite and let $C \in \mathbb{R}^{n \times m}$. Show:
+\begin{enumerate}
+    \item the matrix $C^\top AC$ is positive semi-definite,
+    \item $\text{rank}(C^\top AC) = \text{rank}(C)$,
+    \item the matrix $C^\top AC$ is positive definite if and only if $\text{rank}(C) = m$.
+\end{enumerate}
+
+\section*{1.5}
+Show that a matrix $A \in \mathbb{R}^{n \times n}$ is symmetric and positive definite if and only if it is of the form $A = B B^\top$ with an invertible matrix $B \in \mathbb{R}^{n \times n}$.
+
+\section*{1.6}
+Let $A, B, C \in \mathbb{R}^{2 \times 2}$ with $C = AB$. Let
+\[
+p = (a_{11} + a_{22})(b_{11} + b_{22}), \quad q = (a_{21} + a_{22})b_{11},
+\]
+\[
+r = a_{11}(b_{12} - b_{22}), \quad s = a_{22}(b_{21} - b_{11}),
+\]
+\[
+t = (a_{11} + a_{12})b_{22}, \quad u = (a_{21} - a_{11})(b_{11} + b_{12}),
+\]
+\[
+v = (a_{12} - a_{22})(b_{21} + b_{22}).
+\]
+Show that the elements of $C$ can then be computed via
+\[
+c_{11} = p + s - t + v, \quad c_{12} = r + t,
+\]
+\[
+c_{21} = q + s, \quad c_{22} = p + r - q + u.
+\]
+Compare the number of multiplications and additions for this method with the number of multiplications and additions for the standard method of multiplying two $2 \times 2$ matrices.
+
+Finally, show that if the above method is recursively applied to matrices $A, B \in \mathbb{R}^{n \times n}$ with $n = 2^k$, then the method requires $7^k$ multiplications and $6 \cdot 7^k - 6 \cdot 2^{2k}$ additions and subtractions.
+
+\end{document}

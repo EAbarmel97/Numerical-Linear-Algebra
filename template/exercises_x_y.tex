@@ -1,0 +1,66 @@
+\documentclass{exam}
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{ragged2e}
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\pagestyle{empty}
+\renewcommand{\theenumi}{\alph{enumi}}
+\renewenvironment{proof}{{\noindent\itshape\ignorespaces}}{{\hfill$\qed$\\}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\begin{document}
+
+\begin{center}
+    \textbf{\Large Problems x.y }
+\end{center}
+
+\section*{Exercise 1.1.1}
+Provide a brief description of the problem for Exercise X.y.1.
+\begin{enumerate}
+    \item Prove some property.
+    \item Discuss another aspect.
+\end{enumerate}
+
+\section*{Exercise x.y.2}
+ Describe the problem for Exercise x.y.2.
+\begin{enumerate}
+    \item Prove a statement.
+    \item Derive a formula.
+\end{enumerate}
+
+% % Solutions to other exercises in Chapter X...
+
+\newpage
+
+\begin{center}    
+    \section*{SOLUTIONS}
+\end{center}
+
+\begin{comment}
+    \subsection*{Exercise x.y.1 (a)}
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos 
+    dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, 
+    id est laborum et dolorum fuga.
+    \begin{proof}
+        \begin{equation*}     
+            \begin{aligned}
+                \sigma^{\prime\prime\prime}(x) &= \frac{d}{ d x} \frac{e^{x}-e^{2x}}{(1 + e^{x})^3} = \frac{(e^x - 2e^{2x})(1 + e^x)^3 - 3(1 + e^x)^2 e^{x}(e^x - e^{2x})}{(1 + e^x)^6}\\
+                &= \frac{e^{x} \{ 1 - 4e^x + e^{2x} \}(1 + e^x)^2}{(1 + e^x)^{6}} = \frac{e^{x} \{ 1 - 4e^x + e^{2x} \}}{(1 + e^x)^{4}}
+            \end{aligned}
+    \end{equation*}
+    \end{proof}
+    \subsection*{Exercise x.y.2 (a)}
+    Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est 
+    eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, 
+    omnis dolor repellendus. 
+    \begin{proof}
+         a = a
+    \end{proof}
+\end{comment}
+\end{document}

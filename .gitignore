@@ -1,0 +1,10 @@
+# ignoring Latex build files
+solutions/**/*.aux
+solutions/**/*.fdb_latexmk
+solutions/**/*.fls
+solutions/**/*.log
+solutions/**/*.out
+solutions/**/*.synctex.gz
+
+#julia module
+code/NNLA.jl/Manifest.toml

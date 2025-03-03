@@ -1,0 +1,1 @@
+const VecOrMat{T} = Union{Vector{T}, Matrix{T}} where T <: Real 
