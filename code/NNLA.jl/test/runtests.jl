@@ -1,3 +1,3 @@
 using Test
-
-include("../src/part1.jl")
+include("auxiliaries.jl")
+include("basic_algos.jl")

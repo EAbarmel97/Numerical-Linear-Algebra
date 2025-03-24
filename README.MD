@@ -1,40 +1,40 @@
-# Numerical Linear Algebra Solutions & Julia Module
+# Numerical- Linear-Algebra
 
-This repository contains solutions to all exercises from the book **Numerical Linear Algebra: An Introduction** by **Holger Wenland**, along with a Julia module named `NNLA`. This module includes naive implementations of the algorithms discussed throughout the book.
+Solutions to all exercises from the book **Numerical Linear Algebra: An Introduction** by **Holger Wendland**, along with a Julia module named `NNLA.jl`. This module includes intuitive, naive implementations of the algorithms discussed throughout the book.
 
-## Main Structure:
-
-- **`code/NNLA.jl/`**: Directory containing the Julia module for implementing algorithms and data structures from the book.
-
-- **`solutions/`**: Contains LaTeX source files and compiled PDF outputs for exercises.
-
-## Getting Started
-
-To get started with the code or using the module, clone this repository and set up your Julia environment:
-
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/EAbarmel97/NNLA.jl.git
-    cd NNLA.jl
-    ```
-
-2. Activate the Julia environment:
-    ```bash
-    julia --project=.
-    ```
-
-3. (Optional) Precompile the module. Inside the REPL, run:
-    ```julia
-    using Pkg
-    Pkg.precompile()
-    ```
-
-4. Run tests or start using the `NNLA` module in your own code!
 ---
 
-## Additional Resources
+## 🚀 Key Features
 
-If you're passionate about **Numerical Linear Algebra**, I highly recommend checking out the [***Advanced LAFF***](https://www.youtube.com/@advancedlaff6453) You Tube Channel. It offers high-quality, in-depth tutorials and explanations on topics related to NLA, concerning theory and 
-code implementation. 
+- **Complete Exercise Solutions**: Detailed solutions to all exercises from the book, available in both LaTeX source files and compiled PDFs.
+
+- **Julia Module (`NNLA.jl`)**: A lightweight, easy-to-use Julia module implementing key numerical linear algebra algorithms.
+
+---
+
+## 🛠️ Implemented Routines
+
+### Basic Algorithms
+1. **Dot Product**  
+2. **Back Substitution**  
+3. **Gaussian Elimination**  
+4. **LU Decomposition**
+4. **QR Decomposition**
+
+
+---
+
+## 📂 Repository Structure
+
+- **`code/NNLA.jl/`**: Contains the Julia module with implementations of algorithms and data structures from the book. Perfect for hands-on learning and experimentation.
+- **`notes`**: Contains a LaTeX file with notes on theoretical NLA.
+- **`solutions/`**: Includes LaTeX source files and compiled PDFs for all exercise solutions. Ideal for reference and self-study.
+
+
+---
+
+## 📚 Additional Resources
+
+If you're passionate about **Numerical Linear Algebra**, I highly recommend checking out the [***Advanced LAFF***](https://www.youtube.com/@advancedlaff6453) YouTube Channel. It offers high-quality, in-depth tutorials and explanations on topics related to NLA, covering both theory and code implementation.
 
 

@@ -1,0 +1,164 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage{geometry}
+\geometry{dvips,a4paper,margin=1.2in}
+\usepackage{fancyhdr}
+\usepackage{lipsum}
+\pagestyle{fancy}
+\headheight=17pt
+\fancyhf{}
+\chead{Notes on NLA}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+\usepackage{amsmath,amsfonts,amscd,amssymb,amsthm, mathrsfs}
+\usepackage{dsfont}
+\usepackage{longtable}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[active]{srcltx}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{bbm}
+\usepackage{enumerate}   
+\usepackage{mathtools}
+\usepackage[colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = magenta,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+\usepackage{subfig}
+\usepackage{MnSymbol}
+\usepackage{stmaryrd}
+\usepackage{nicefrac}
+\usepackage{natbib}
+\usepackage{rotating}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage[affil-it]{authblk}
+\usepackage{verbatim}
+
+\colorlet{shadecolor}{blue!14}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{definition}{Definition}[section]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand {\tr}{\mathrm{tr}}
+\newcommand {\R}{\mathbb{R}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\renewcommand {\H}{\mathbb{H}}
+\newcommand {\1}{\textrm{\textbf{1}}}
+\newcommand {\Id}{\mathscr{I}}
+\newcommand {\F}{\mathcal{F}}
+\newcommand {\G}{\mathcal{G}}
+\newcommand {\I}{\mathcal{I}}
+\newcommand {\N}{\mathcal{N}}
+\newcommand {\C}{\mathcal{C}}
+\newcommand {\T}{\mathcal{T}}
+\renewcommand {\P}{\mathcal{P}}
+\renewcommand {\L}{\mathcal{L}}
+\newcommand {\FF}{\mathscr{F}}
+\newcommand {\BB}{\mathscr{B}}
+\newcommand {\KK}{\mathscr{K}}
+\newcommand {\RR}{\mathscr{R}}
+\newcommand {\GG}{\mathscr{G}}
+\newcommand {\TT}{\mathscr{T}}
+\newcommand {\WW}{\mathscr{W}}
+\newcommand {\Pj}{\mathscr{P}}
+\newcommand {\CC}{\mathscr{C}}
+\newcommand {\A}{\mathscr{A}}
+\newcommand {\Lo}{\mathscr{L}}
+\newcommand{\range}{\mathrm{range}}
+\newcommand{\Frechet}{Fréchet }
+\newcommand{\Tan}{\T}
+
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blu}[1]{{\color{blue} #1}} 
+
+\usepackage{enumitem, hyperref}
+\makeatletter
+\def\namedlabel#1#2{\begingroup
+  #2%
+  \def\@currentlabel{#2}%
+  \phantomsection\label{#1}\endgroup
+}
+\makeatother
+
+\title{\Large{Numerical Linear Algebra: An Introduction - Notes}}
+\author{
+  Enki A. Barra Melendrez
+}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\setcounter{section}{1}
+
+\section{Error, Stability and Conditioning}
+
+\begin{definition}
+    A B-adic, normalized floating point number of precision $m$ is either $x=0$ or:\\
+    \begin{equation*}
+        x = B^e \sum_{k=-m}^{-1} x_k B^{-k}, \ x_{-1} \neq 0, \ x_k \in \{0,1,\ldots,B-1\}
+    \end{equation*}
+    Where: 
+    \begin{itemize}
+        \item $B \geq 2$ is the base of the number system.
+        \item $e_{min} \leq e \leq e_{max}$ is the exponent.
+        \item $\sum_{k=-m}^{-1} x_k B^{-k}$ is the mantissa.
+    \end{itemize}
+\end{definition}
+
+Many programming languages use the IEEE 754 standard for floating point arithmetic. In this standard, for a double precision number, the base is $B=2$, the mantissa has $m=52$ 
+bits and the exponent has $11$ bits.
+\\
+\\
+Two additional numbers are added to the set of floating point numbers: $\pm \infty$ and NaN (Not a Number) which is used to represent undefined or unrepresentable values.
+\begin{definition}
+    The machine epsilon $eps$ is the smallest positive number which satisfies:
+    \[
+       | x -rd(x) | \leq eps | x |
+    \]
+    Where $rd(x)$ is the floating point representation of $x$. Usually this rounding function is taken to be 
+    the nearest machine number.
+\end{definition}
+
+\setcounter{theorem}{2}
+\begin{theorem}
+    For a floating point number system with base $B$ and precision $m$, the machine epsilon is given by:
+    The machine epsilon is given by $eps = B^{1-m}$ , i.e we have: 
+    \[
+        | x -rd(x) | \leq B^{1-m} | x |
+    \]
+\end{theorem}
+
+\begin{theorem}
+Let $\star$ be one of the operations $+, -, \times, /$ and let $\circledast$ be the equivalent floating point operation, then $\forall x, y$ in 
+the floating point system, there exists an $\epsilon$ such that:
+\[
+    x \star y = (x \circledast y)(1 + \epsilon).
+\]
+\end{theorem}
+
+\setcounter{definition}{11}
+\begin{definition}
+  Given the norms $\| \cdot \|_{(n)}$ and $\| \cdot \|_{(m)}$ on $\R^n$ and $\R^{m}$ respectively, we say that a matrix norm $\| \cdot \|_{\star}$ is \textbf{compatible} 
+  with these norms if:
+  \[
+      \| A x \|_{(m)} \leq \| A \|_{\star} \| x \|_{(n)}, \quad \forall x \in \R^n.
+  \]
+\end{definition}
+\bibliography{bib}
+
+\end{document}
+

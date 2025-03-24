@@ -13,3 +13,13 @@ for dir in "${soldirs[@]}"; do
         done
     fi
 done
+
+#checks if dir exits and compile in wanted dir the .tex file
+if [ -d notes/. ]; then
+    for file in notes/*; do
+        case $file in
+            *.tex) 
+            pdflatex -output-directory="notes/." "$file"
+        esac
+    done
+fi

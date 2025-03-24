@@ -7,7 +7,24 @@
 Let $V$ be a pre-Hilbert space. Use $0 \leq \langle \alpha x + \beta y, \alpha x + \beta y \rangle$ for $\alpha, \beta \in \mathbb{R}$ and $x, y \in V$ to prove the Cauchy–Schwarz inequality.
 \\
 \\
-\noindent \textbf{SOLUTION: }
+\noindent \textbf{SOLUTION: }\\
+
+\noindent Let $x, y \in \mathbb{V}, \alpha, \beta \in \mathbb{R}$, $0 \leq \langle \alpha x + \beta y ,\alpha x + \beta y  \rangle$. Without loss of generality 
+take $\beta = 1$. Then, by the linearity of $\langle \star, \cdot \rangle$ follows:
+
+\begin{align*}
+    0 &\leq \langle \alpha x + y, \alpha x + y,\rangle \\
+    &= \langle \alpha x, \alpha x \rangle + \langle \alpha x, y \rangle + \langle y, \alpha x \rangle + \langle y, y \rangle \\
+    &= \alpha^2 \langle x, x \rangle + \alpha \langle x, y \rangle + \alpha \langle y, x \rangle + \langle y, y \rangle \\
+    &= \alpha^2 \| x \|^2 + 2 \alpha \langle x, y \rangle + \| y \|^2
+\end{align*}
+
+\noindent The minimum (as a function of $\alpha$) is attained when:
+\[ 
+    \alpha^2 \| x \|^2 + 2 \alpha \langle x, y \rangle + \| y \|^2 = 0
+\] Note that because this polynomial as a function of $\alpha$ is a quadratic polynomial, it has at most one real root. Therefore 
+the discriminant must be non-positive, i.e. $4\langle x, y \rangle^2 - 4 \| x \|^2 \| y \|^2 \leq 0$, which is equivalent to
+the Cauchy-Schwarz-Bunyakowsky inequality.
 
 \section*{1.2}
 Let $V$ be a normed space with norm $\| \cdot \| : V \to \mathbb{R}$. Show that $V$ is a pre-Hilbert space and that the norm comes from an inner product $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$ if and only if the parallelogram equality
@@ -18,6 +35,9 @@ holds, and that in this case the inner product satisfies
 \[
 \langle x, y \rangle = \frac{1}{4} \left( \|x + y\|^2 - \|x - y\|^2 \right), \quad x, y \in V.
 \]
+
+\noindent \textbf{SOLUTION: }\\
+$\leftleftarrows]$
 
 \section*{1.3}
 Let $V$ be a pre-Hilbert space. Show that the norm induced by the inner product satisfies $\|x + y\| < 2$ for all $x \neq y \in V$ with $\|x\| = \|y\| = 1$.
