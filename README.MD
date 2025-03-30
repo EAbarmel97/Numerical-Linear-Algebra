@@ -1,14 +1,6 @@
 # Numerical- Linear-Algebra
 
-Solutions to all exercises from the book **Numerical Linear Algebra: An Introduction** by **Holger Wendland**, along with a Julia module named `NNLA.jl`. This module includes intuitive, naive implementations of the algorithms discussed throughout the book.
-
----
-
-## 🚀 Key Features
-
-- **Complete Exercise Solutions**: Detailed solutions to all exercises from the book, available in both LaTeX source files and compiled PDFs.
-
-- **Julia Module (`NNLA.jl`)**: A lightweight, easy-to-use Julia module implementing key numerical linear algebra algorithms.
+Solutions to all exercises from the book **Numerical Linear Algebra: An Introduction** by **Holger Wendland**, along with a Julia module named `NNLA.jl` implementing all of the algorithms discussed throughout the book.
 
 ---
 

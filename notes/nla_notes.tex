@@ -1,56 +1,97 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[12pt,a4paper]{book}
 
-\usepackage{geometry}
-\geometry{dvips,a4paper,margin=1.2in}
+\usepackage[left=2cm,right=2cm,top=2.5cm,bottom=2.5cm,ignorefoot=true]{geometry}
+
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.5em}
+\renewcommand{\baselinestretch}{1.25}
+
 \usepackage{fancyhdr}
-\usepackage{lipsum}
 \pagestyle{fancy}
-\headheight=17pt
-\fancyhf{}
-\chead{Notes on NLA}
-\renewcommand{\headrulewidth}{0pt}
-\cfoot{\thepage}
+\fancyhead{}
+\renewcommand{\sectionmark}[1]{\markright{\thesection. #1}}
+\renewcommand\chaptermark[1]{\markboth{#1}{}\def\cchapter{#1}}
+\fancyhead[RE]{\leftmark}
+\fancyhead[LO]{\rightmark}
+\fancyhead[RO,LE]{\thepage}
+\fancyfoot{}
+\renewcommand{\footrulewidth}{0.2pt}
+\fancyfoot[C]{{\em \small NLAAI - Notes}}
 
-\usepackage{amsmath,amsfonts,amscd,amssymb,amsthm, mathrsfs}
-\usepackage{dsfont}
-\usepackage{longtable}
-\usepackage[english]{babel}
+\makeatletter 
+\def\clearpage{% 
+	\ifvmode 
+		\ifnum \@dbltopnum =\m@ne 
+			\ifdim \pagetotal < \topskip 
+				\hbox{} 
+			\fi 
+		\fi 
+	\fi 
+\newpage 
+\thispagestyle{empty} 
+\write\m@ne{} 
+\vbox{} 
+\penalty -\@Mi 
+} 
+\makeatother
+
+\usepackage[dvips]{graphicx}
+\usepackage{titlesec,color}
+\usepackage[font=small,labelfont=bf]{caption}
+
+\definecolor{gray75}{gray}{0.5}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter\hsp\textcolor{gray75}{$|$}\hsp}{0pt}{\huge\bfseries}
+
 \usepackage[utf8]{inputenc}
-\usepackage[active]{srcltx}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{enumitem}
-\usepackage{bbm}
-\usepackage{enumerate}   
-\usepackage{mathtools}
-\usepackage[colorlinks = true,
-            linkcolor = blue,
-            urlcolor  = magenta,
-            citecolor = blue,
-            anchorcolor = blue]{hyperref}
-\usepackage{subfig}
-\usepackage{MnSymbol}
-\usepackage{stmaryrd}
-\usepackage{nicefrac}
-\usepackage{natbib}
-\usepackage{rotating}
-\usepackage{xcolor}
-\usepackage{framed}
-\usepackage[affil-it]{authblk}
-\usepackage{verbatim}
+\usepackage[english]{babel}
+\usepackage{amssymb,amsfonts,latexsym,amsmath,amscd}
+\usepackage{lmodern}
 
-\colorlet{shadecolor}{blue!14}
+%---------------
+% Environments
+\usepackage{amsthm}
+\usepackage[most,theorems]{tcolorbox}
+\definecolor{block-gray}{gray}{0.75}
+\newtcolorbox{blockquote}{colback=block-gray,grow to right by=-1mm,grow to left by=-1mm,boxrule=0pt,boxsep=0pt,breakable}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcbtheorem[number within=section]%
+{definition} % \begin..
+{Definition} % Title
+{fonttitle=\bfseries,colframe=red!75!black,colback=red!5!white,breakable} % Style 
+{def} % label prefix; cite as ``def:yourlabel''
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{corollary}{Corollary}[section]
-\newtheorem{lemma}{Lemma}[section]
-\newtheorem{definition}{Definition}[section]
+\newtcbtheorem[number within=section]%
+{theorem} % \begin..
+{Theorem} % Title
+{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
+{teo} % label prefix; cite as ``teo:yourlabel''
 
+\newtcbtheorem[number within=section]%
+{proposition} % \begin..
+{Proposition} % Title
+{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
+{prop} % label prefix; cite as ``prop:yourlabel''
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcbtheorem[number within=section]%
+{corollary} % \begin..
+{Corollary} % Title
+{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
+{cor} % label prefix; cite as ``cor:yourlabel''
+
+\newtcbtheorem[number within=section]%
+{notation} % \begin..
+{Notation} % Title
+{fonttitle=\bfseries,colframe=green!75!black,colback=green!5!white,breakable} % Style 
+{note} % label prefix; cite as ``nota:yourlabel''
+
+\newtcbtheorem[number within=section]%
+{lemma} % \begin..
+{Lemma} % Title
+{fonttitle=\bfseries,colframe=yellow!75!black,colback=yellow!5!white,breakable} % Style 
+{lemma} % label prefix; cite as ``nota:yourlabel''
+
+%-----------------------
 \newcommand {\tr}{\mathrm{tr}}
 \newcommand {\R}{\mathbb{R}}
 \newcommand{\PP}{\mathbb{P}}
@@ -77,37 +118,29 @@
 \newcommand {\CC}{\mathscr{C}}
 \newcommand {\A}{\mathscr{A}}
 \newcommand {\Lo}{\mathscr{L}}
-\newcommand{\range}{\mathrm{range}}
-\newcommand{\Frechet}{Fréchet }
-\newcommand{\Tan}{\T}
 
-\newcommand{\red}[1]{{\color{red} #1}}
-\newcommand{\blu}[1]{{\color{blue} #1}} 
+\newcommand{\der}[1]{#1^{\prime}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\inp}[1]{\langle#1\rangle}
+\newcommand{\conj}[1]{\lbrace#1\rbrace}
+\newcommand{\roof}[1]{\lceil#1\rceil}
+\newcommand{\mx}[1]{max\lbrace#1\rbrace}
+\newcommand{\mn}[1]{min\lbrace#1\rbrace}
+\newcommand{\Lah}{L_{a}^{1}(h)}
+\newcommand{\mlp}[1]{\textsl{MLP}(\rho,d,#1)}
 
-\usepackage{enumitem, hyperref}
-\makeatletter
-\def\namedlabel#1#2{\begingroup
-  #2%
-  \def\@currentlabel{#2}%
-  \phantomsection\label{#1}\endgroup
-}
-\makeatother
-
-\title{\Large{Numerical Linear Algebra: An Introduction - Notes}}
-\author{
-  Enki A. Barra Melendrez
-}
-\date{\today}
+\title{\textsc{Numerical Linear Algebra: An Introduction - Notes}}
+\author{Enki A. Barra Melendrez}
+\date{}
 
 \begin{document}
-
 \maketitle
 \setcounter{section}{1}
-
 \section{Error, Stability and Conditioning}
 
-\begin{definition}
-    A B-adic, normalized floating point number of precision $m$ is either $x=0$ or:\\
+\begin{definition}{Floating point number}
+    A B-adic, normalized floating point number of precision $m$ is either $x=0$ or:
     \begin{equation*}
         x = B^e \sum_{k=-m}^{-1} x_k B^{-k}, \ x_{-1} \neq 0, \ x_k \in \{0,1,\ldots,B-1\}
     \end{equation*}
@@ -119,22 +152,19 @@
     \end{itemize}
 \end{definition}
 
-Many programming languages use the IEEE 754 standard for floating point arithmetic. In this standard, for a double precision number, the base is $B=2$, the mantissa has $m=52$ 
-bits and the exponent has $11$ bits.
+\noindent Many programming languages use the IEEE 754 standard for floating point arithmetic. In this standard, for a double precision number, the base is $B=2$, the mantissa has $m=52$ bits and the exponent has $11$ bits.\\
 \\
-\\
-Two additional numbers are added to the set of floating point numbers: $\pm \infty$ and NaN (Not a Number) which is used to represent undefined or unrepresentable values.
-\begin{definition}
+\noindent Two additional numbers are added to the set of floating point numbers: $\pm \infty$ and NaN (Not a Number) which is used to represent undefined or unrepresentable values.\\
+
+\begin{definition}{Machine epsilon}
     The machine epsilon $eps$ is the smallest positive number which satisfies:
     \[
        | x -rd(x) | \leq eps | x |
     \]
-    Where $rd(x)$ is the floating point representation of $x$. Usually this rounding function is taken to be 
-    the nearest machine number.
+    Where $rd(x)$ is the floating point representation of $x$. 
 \end{definition}
-
-\setcounter{theorem}{2}
-\begin{theorem}
+\noindent Usually this rounding function is taken to be the nearest machine number. A B-system with precision $m$ the associated the machine epsilon is given by:\\
+\begin{theorem}{Floating point machine epsilon}
     For a floating point number system with base $B$ and precision $m$, the machine epsilon is given by:
     The machine epsilon is given by $eps = B^{1-m}$ , i.e we have: 
     \[
@@ -142,23 +172,30 @@ Two additional numbers are added to the set of floating point numbers: $\pm \inf
     \]
 \end{theorem}
 
-\begin{theorem}
-Let $\star$ be one of the operations $+, -, \times, /$ and let $\circledast$ be the equivalent floating point operation, then $\forall x, y$ in 
-the floating point system, there exists an $\epsilon$ such that:
-\[
-    x \star y = (x \circledast y)(1 + \epsilon).
-\]
+\begin{theorem}{Floating point ope}
+    Let $\star$ be one of the operations $+, -, \times, /$ and let $\circledast$ be the equivalent floating point operation, then $\forall x, y$ in the floating point system, there exists an $\epsilon$ such that:
+    \[
+        x \star y = (x \circledast y)(1 + \epsilon).
+    \]
 \end{theorem}
 
-\setcounter{definition}{11}
-\begin{definition}
-  Given the norms $\| \cdot \|_{(n)}$ and $\| \cdot \|_{(m)}$ on $\R^n$ and $\R^{m}$ respectively, we say that a matrix norm $\| \cdot \|_{\star}$ is \textbf{compatible} 
-  with these norms if:
+\begin{definition}{Compatibility of matrix norms}
+  Given the norms $\| \cdot \|_{(n)}$ and $\| \cdot \|_{(m)}$ on $\R^n$ and $\R^{m}$ respectively, we say that a matrix norm $\| \cdot \|_{\star}$ is \textbf{compatible} with these norms if:
   \[
       \| A x \|_{(m)} \leq \| A \|_{\star} \| x \|_{(n)}, \quad \forall x \in \R^n.
   \]
 \end{definition}
+
+\noindent \textbf{Matrix-vector multiplication} arises naturally when solving linear systems of equations. Given a matrix $\mathbf{A} \in \R^{m \times n}$, $x, b \in \R^n$. Let us consider the situation
+\begin{align*}
+    b &= \mathbf{A} x \text{,} \\
+    \delta b &= \mathbf{A} \delta x
+\end{align*}
+
+\noindent If the matix $\mathbf{A}: \R^n \to \R^n$ is non-singular, then $\| x \|_{\star} := \| \mathbf{A} x \|$ is a norm on $\R^n$. From the fact that all norms 
+in $\R^n$ are equivalent follows that there exits two constants $C_1$ and $C_2$ such that:\\
+\[
+    C_1 \| x \| \leq \|\mathbf{A} x\| \leq C_2 \| x \| \implies \frac{\| \delta b \|}{\| b \|} \leq \frac{C_2}{C_1} \frac{\| \delta x \|}{\| x \|}.
+\]
 \bibliography{bib}
-
 \end{document}
-

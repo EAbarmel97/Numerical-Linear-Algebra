@@ -13,7 +13,7 @@ Let $V$ be a pre-Hilbert space. Use $0 \leq \langle \alpha x + \beta y, \alpha x
 take $\beta = 1$. Then, by the linearity of $\langle \star, \cdot \rangle$ follows:
 
 \begin{align*}
-    0 &\leq \langle \alpha x + y, \alpha x + y,\rangle \\
+    0 &\leq \langle \alpha x + y, \alpha x + y\rangle \\
     &= \langle \alpha x, \alpha x \rangle + \langle \alpha x, y \rangle + \langle y, \alpha x \rangle + \langle y, y \rangle \\
     &= \alpha^2 \langle x, x \rangle + \alpha \langle x, y \rangle + \alpha \langle y, x \rangle + \langle y, y \rangle \\
     &= \alpha^2 \| x \|^2 + 2 \alpha \langle x, y \rangle + \| y \|^2
@@ -44,7 +44,12 @@ Let $V$ be a pre-Hilbert space. Show that the norm induced by the inner product 
 \\
 \\
 \noindent \textbf{SOLUTION: }
-We know that $\langle \star, \star \rangle^{\frac{1}{2}} =  \| \star \|$. By ex. $1.2$ this implies the internal product can be expressed in 
+The norm induced by $\langle \star, \star \rangle^{\frac{1}{2}} =  \| \star \|$ satisfies the parallelogram equality. Therefore, 
+for $x \neq y \in V$ with $\|x\| = \|y\| = 1$ we have:
+\begin{align*}
+    \langle x + y , x + y  \rangle = \|x + y\|^2 &= 2(\|x\|^2 + \|y\|^2 - \|x-y\|^2)\\ 
+    &< 2(\|x\|^2 + \|y\|^2) = 4.
+\end{align*}
 \section*{1.4}
 Let $A \in \mathbb{R}^{n \times n}$ be symmetric and positive definite and let $C \in \mathbb{R}^{n \times m}$. Show:
 \begin{enumerate}
