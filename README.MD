@@ -1,32 +1,29 @@
-# Numerical- Linear-Algebra
+# Numerical-Linear-Algebra  
 
-Solutions to all exercises from the book **Numerical Linear Algebra: An Introduction** by **Holger Wendland**, along with a Julia module named `NNLA.jl` implementing all of the algorithms discussed throughout the book.
+This repository contains solutions to all exercises from **Numerical Linear Algebra: An Introduction** by **Holger Wendland** and a Julia module, `NNLA.jl`, implementing the book’s algorithms.  
+
+> **Note**  
+> The repository is a work in progress. While some algorithms and exercises have been implemented, more will be added over time.  
 
 ---
 
-## 🛠️ Implemented Routines
+## 🛠️ Implemented Algorithms  
 
-### Basic Algorithms
+### Basic Algorithms 
 1. **Dot Product**  
 2. **Back Substitution**  
 3. **Gaussian Elimination**  
-4. **LU Decomposition**
-4. **QR Decomposition**
-
 
 ---
 
-## 📂 Repository Structure
+## 📂 Repository Overview 
 
-- **`code/NNLA.jl/`**: Contains the Julia module with implementations of algorithms and data structures from the book. Perfect for hands-on learning and experimentation.
-- **`notes`**: Contains a LaTeX file with notes on theoretical NLA.
-- **`solutions/`**: Includes LaTeX source files and compiled PDFs for all exercise solutions. Ideal for reference and self-study.
-
+- **`code/NNLA.jl/`** – A Julia module with algorithm implementations and data structures from the book, designed for experimentation and learning.  
+- **`notes/`** – A LaTeX document with theoretical notes on Numerical Linear Algebra.  
+- **`solutions/`** – LaTeX source files and compiled PDFs containing detailed exercise solutions.  
 
 ---
 
-## 📚 Additional Resources
+## 📚 Recommended Resources  
 
-If you're passionate about **Numerical Linear Algebra**, I highly recommend checking out the [***Advanced LAFF***](https://www.youtube.com/@advancedlaff6453) YouTube Channel. It offers high-quality, in-depth tutorials and explanations on topics related to NLA, covering both theory and code implementation.
-
-
+For further learning, I highly recommend the [***Advanced LAFF***](https://www.youtube.com/@advancedlaff6453) YouTube channel. It offers well-structured tutorials covering both theoretical concepts and practical implementations in Numerical Linear Algebra.

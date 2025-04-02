@@ -40,7 +40,7 @@
 \usepackage[font=small,labelfont=bf]{caption}
 
 \definecolor{gray75}{gray}{0.5}
-\newcommand{\hsp}{\hspace{20pt}}
+\newcommand{\hsp}{\hspace{15pt}}
 \titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter\hsp\textcolor{gray75}{$|$}\hsp}{0pt}{\huge\bfseries}
 
 \usepackage[utf8]{inputenc}
@@ -52,44 +52,37 @@
 % Environments
 \usepackage{amsthm}
 \usepackage[most,theorems]{tcolorbox}
-\definecolor{block-gray}{gray}{0.75}
-\newtcolorbox{blockquote}{colback=block-gray,grow to right by=-1mm,grow to left by=-1mm,boxrule=0pt,boxsep=0pt,breakable}
 
-\newtcbtheorem[number within=section]%
-{definition} % \begin..
-{Definition} % Title
-{fonttitle=\bfseries,colframe=red!75!black,colback=red!5!white,breakable} % Style 
-{def} % label prefix; cite as ``def:yourlabel''
+\newtcolorbox[auto counter, number within=section]{definition}[2][]{colframe=red!75!black, colback=red!5!white, 
+    fonttitle=\bfseries, title=Definition~\thetcbcounter, 
+    coltitle=white, boxrule=0.8mm,
+    breakable, #1}
 
-\newtcbtheorem[number within=section]%
-{theorem} % \begin..
-{Theorem} % Title
-{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
-{teo} % label prefix; cite as ``teo:yourlabel''
+\newtcolorbox[auto counter, number within=section]{theorem}[2][]{colframe=blue!75!black, colback=blue!5!white, 
+    fonttitle=\bfseries, title=Theorem~\thetcbcounter, 
+    coltitle=white, boxrule=0.8mm,
+    breakable, #1}
 
-\newtcbtheorem[number within=section]%
-{proposition} % \begin..
-{Proposition} % Title
-{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
-{prop} % label prefix; cite as ``prop:yourlabel''
+\newtcolorbox[auto counter, number within=section]{proposition}[2][]{colframe=blue!75!black, colback=blue!5!white, 
+    fonttitle=\bfseries, title=Proposition~\thetcbcounter, 
+    coltitle=white, boxrule=0.8mm,
+    breakable, #1}
 
-\newtcbtheorem[number within=section]%
-{corollary} % \begin..
-{Corollary} % Title
-{fonttitle=\bfseries,colframe=blue!75!black,colback=blue!5!white,breakable} % Style 
-{cor} % label prefix; cite as ``cor:yourlabel''
+\newtcolorbox[auto counter, number within=section]{corollary}[2][]{colframe=blue!75!black, colback=blue!5!white, 
+    fonttitle=\bfseries, title=Corollary~\thetcbcounter, 
+    coltitle=white, boxrule=0.8mm, arc=4mm,
+    boxrule=0.8mm,
+    breakable, #1}
 
-\newtcbtheorem[number within=section]%
-{notation} % \begin..
-{Notation} % Title
-{fonttitle=\bfseries,colframe=green!75!black,colback=green!5!white,breakable} % Style 
-{note} % label prefix; cite as ``nota:yourlabel''
+\newtcolorbox[auto counter, number within=section]{notation}[2][]{colframe=green!75!black, colback=green!5!white, 
+    fonttitle=\bfseries, title=Notation~\thetcbcounter,
+    coltitle=white, boxrule=0.8mm, arc=4mm,
+    breakable, #1}
 
-\newtcbtheorem[number within=section]%
-{lemma} % \begin..
-{Lemma} % Title
-{fonttitle=\bfseries,colframe=yellow!75!black,colback=yellow!5!white,breakable} % Style 
-{lemma} % label prefix; cite as ``nota:yourlabel''
+\newtcolorbox[auto counter, number within=section]{lemma}[2][]{colframe=yellow!75!black, colback=yellow!5!white, 
+    fonttitle=\bfseries, title=Lemma~\thetcbcounter, 
+    coltitle=white, boxrule=0.8mm,
+    breakable, #1}
 
 %-----------------------
 \newcommand {\tr}{\mathrm{tr}}
@@ -193,7 +186,7 @@
 \end{align*}
 
 \noindent If the matix $\mathbf{A}: \R^n \to \R^n$ is non-singular, then $\| x \|_{\star} := \| \mathbf{A} x \|$ is a norm on $\R^n$. From the fact that all norms 
-in $\R^n$ are equivalent follows that there exits two constants $C_1$ and $C_2$ such that:\\
+in $\R^n$ are equivalent follows that there exist two constants $C_1$ and $C_2$ such that:\\
 \[
     C_1 \| x \| \leq \|\mathbf{A} x\| \leq C_2 \| x \| \implies \frac{\| \delta b \|}{\| b \|} \leq \frac{C_2}{C_1} \frac{\| \delta x \|}{\| x \|}.
 \]
